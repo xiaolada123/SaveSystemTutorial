@@ -53,30 +53,6 @@ namespace SaveSystemTutorial
         #endregion
 
 
-        #region PlayerPrefs
-        void SaveByPlayerPrefs()
-        {
-            SaveData saveData= save();
-            SaveSystem.SaveByPlayerPrefs(PlAYER_DATA_KEY,saveData);
-        }
-
-        
-        void LoadFromPlayerPrefs()
-        {
-            var json = SaveSystem.LoadFromPlayerPrefs(PlAYER_DATA_KEY);
-            load( JsonUtility.FromJson<SaveData>(json));
-            
-        }
-
-        [UnityEditor.MenuItem("Developer/Delete Player Data Prefs")]
-        public static void DeletePlayerDataPrefs()
-        {
-            PlayerPrefs.DeleteKey(PlAYER_DATA_KEY);
-        }
-        
-
-        #endregion
-
         SaveData save()
         {
             var saveData = new SaveData();
